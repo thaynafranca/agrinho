@@ -3,145 +3,244 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sustentabilidade - Nosso Planeta, Nossa Responsabilidade</title>
+    <title>Sustentabilidade - Preserve o Planeta</title>
     <style>
         /* Reset e estilos básicos */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Arial', sans-serif;
         }
 
         body {
-            background-color: #f5f5f5;
+            background-color: #f0f8ff;
             color: #333;
             line-height: 1.6;
         }
 
-        /* Cabeçalho */
+        /* Cabeçalho com imagem de fundo */
         header {
-            background-color: #2e8b57;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                        url('https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
             color: white;
-            padding: 2rem 0;
+            padding: 5rem 0;
             text-align: center;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         header p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             max-width: 800px;
             margin: 0 auto;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
 
         /* Navegação */
         nav {
-            background-color: #3cb371;
-            padding: 1rem 0;
+            background-color: #228B22;
+            padding: 1.2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         nav ul {
             display: flex;
             justify-content: center;
             list-style: none;
+            flex-wrap: wrap;
         }
 
         nav li {
-            margin: 0 1.5rem;
+            margin: 0 1.8rem;
         }
 
         nav a {
             color: white;
             text-decoration: none;
             font-weight: bold;
-            transition: color 0.3s;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
         }
 
         nav a:hover {
-            color: #f0f0f0;
-            text-decoration: underline;
+            background-color: #2E8B57;
+            transform: translateY(-2px);
         }
 
         /* Conteúdo principal */
         .container {
             max-width: 1200px;
-            margin: 2rem auto;
+            margin: 3rem auto;
             padding: 0 2rem;
         }
 
         section {
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
             background-color: white;
-            border-radius: 8px;
-            padding: 2rem;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         h2 {
-            color: #2e8b57;
-            margin-bottom: 1.5rem;
-            border-bottom: 2px solid #3cb371;
-            padding-bottom: 0.5rem;
+            color: #228B22;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background-color: #3CB371;
         }
 
         h3 {
-            color: #3cb371;
-            margin: 1.5rem 0 1rem;
+            color: #2E8B57;
+            margin: 2rem 0 1.2rem;
+            font-size: 1.5rem;
         }
 
         p {
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
         }
 
-        /* Dicas de sustentabilidade */
-        .dicas {
+        /* Imagens e cards */
+        .img-container {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .img-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+
+        .img-container img:hover {
+            transform: scale(1.02);
+        }
+
+        .img-container figcaption {
+            margin-top: 0.8rem;
+            font-style: italic;
+            color: #666;
+        }
+
+        .cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
+            gap: 2rem;
+            margin-top: 2.5rem;
         }
 
-        .dica {
+        .card {
             background-color: #f9f9f9;
-            padding: 1.5rem;
             border-radius: 8px;
-            border-left: 4px solid #3cb371;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .dica h4 {
-            color: #2e8b57;
-            margin-bottom: 0.5rem;
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .card:hover .card-img img {
+            transform: scale(1.1);
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card h4 {
+            color: #228B22;
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
         }
 
         /* Rodapé */
         footer {
-            background-color: #2e8b57;
+            background-color: #228B22;
             color: white;
             text-align: center;
-            padding: 2rem 0;
-            margin-top: 2rem;
+            padding: 3rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         footer p {
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
         }
 
         .social-links {
-            margin-top: 1rem;
+            margin-top: 1.5rem;
         }
 
         .social-links a {
             color: white;
-            margin: 0 10px;
-            font-size: 1.2rem;
+            margin: 0 15px;
+            font-size: 1.5rem;
+            display: inline-block;
+            transition: transform 0.3s;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
         }
 
         /* Responsividade */
         @media (max-width: 768px) {
+            header {
+                height: 50vh;
+                padding: 3rem 1rem;
+            }
+
+            header h1 {
+                font-size: 2.2rem;
+            }
+
             nav ul {
                 flex-direction: column;
                 align-items: center;
@@ -151,113 +250,188 @@
                 margin: 0.5rem 0;
             }
 
-            header h1 {
-                font-size: 2rem;
+            .container {
+                padding: 0 1rem;
+            }
+
+            section {
+                padding: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Sustentabilidade Ambiental</h1>
-        <p>Pequenas ações podem fazer uma grande diferença para o nosso planeta. Descubra como você pode contribuir para um futuro mais sustentável.</p>
+        <h1>Viva de Forma Sustentável</h1>
+        <p>Descubra como pequenas mudanças em seu dia a dia podem ter um grande impacto no futuro do nosso planeta.</p>
     </header>
 
     <nav>
         <ul>
-            <li><a href="#o-que-e">O que é?</a></li>
+            <li><a href="#conceito">Conceito</a></li>
             <li><a href="#importancia">Importância</a></li>
-            <li><a href="#acoes">Ações</a></li>
-            <li><a href="#dicas">Dicas</a></li>
+            <li><a href="#praticas">Práticas</a></li>
+            <li><a href="#galeria">Galeria</a></li>
         </ul>
     </nav>
 
     <div class="container">
-        <section id="o-que-e">
-            <h2>O que é Sustentabilidade?</h2>
-            <p>Sustentabilidade é o conceito que define a capacidade de suprir as necessidades da geração atual sem comprometer a capacidade das gerações futuras de suprir suas próprias necessidades. Envolve três pilares principais: ambiental, social e econômico.</p>
+        <section id="conceito">
+            <h2>O Conceito de Sustentabilidade</h2>
             
-            <h3>Os três pilares da sustentabilidade</h3>
-            <ul>
-                <li><strong>Ambiental:</strong> Conservação dos recursos naturais e proteção dos ecossistemas.</li>
-                <li><strong>Social:</strong> Promoção da justiça social, qualidade de vida e bem-estar para todos.</li>
-                <li><strong>Econômico:</strong> Desenvolvimento econômico que seja viável a longo prazo e beneficie toda a sociedade.</li>
-            </ul>
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80" 
+                     alt="Planeta Terra no espaço com foco em sustentabilidade">
+                <figcaption>Nosso planeta precisa de ações sustentáveis</figcaption>
+            </div>
+            
+            <p>Sustentabilidade é o princípio de atender às necessidades do presente sem comprometer a capacidade das gerações futuras de atenderem às suas próprias necessidades. É um equilíbrio delicado entre desenvolvimento humano e preservação ambiental.</p>
+            
+            <h3>Os Três Pilares</h3>
+            <p>A sustentabilidade se apoia em três pilares fundamentais que devem ser considerados em conjunto:</p>
+            
+            <div class="cards">
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Natureza preservada">
+                    </div>
+                    <div class="card-content">
+                        <h4>Ambiental</h4>
+                        <p>Preservação dos ecossistemas, conservação da biodiversidade e uso racional dos recursos naturais.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?ixlib=rb-1.2.1&auto=format&fit=crop&w=1349&q=80" alt="Comunidade unida">
+                    </div>
+                    <div class="card-content">
+                        <h4>Social</h4>
+                        <p>Promoção da qualidade de vida, justiça social, educação e saúde para todas as pessoas.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Energia renovável">
+                    </div>
+                    <div class="card-content">
+                        <h4>Econômico</h4>
+                        <p>Desenvolvimento econômico que seja viável a longo prazo e beneficie toda a sociedade.</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section id="importancia">
-            <h2>Por que a Sustentabilidade é Importante?</h2>
-            <p>Com o crescimento populacional e o aumento do consumo, os recursos naturais estão sendo esgotados em um ritmo acelerado. A sustentabilidade busca equilibrar o desenvolvimento humano com a preservação do meio ambiente, garantindo que:</p>
+            <h2>Por que a Sustentabilidade é Crucial?</h2>
             
+            <div class="img-container">
+                <img src="https://images.unsplash.com/photo-1615876234886-fd9a39fda97f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                     alt="Mãos segurando planta jovem">
+                <figcaption>O futuro está em nossas mãos</figcaption>
+            </div>
+            
+            <p>Nos últimos séculos, o desenvolvimento industrial e tecnológico trouxe muitos benefícios, mas também causou danos significativos ao meio ambiente. A sustentabilidade busca corrigir esses danos e estabelecer um novo modelo de desenvolvimento.</p>
+            
+            <h3>Desafios Atuais</h3>
             <ul>
-                <li>Os recursos naturais não se esgotem</li>
-                <li>A biodiversidade seja preservada</li>
-                <li>As mudanças climáticas sejam mitigadas</li>
-                <li>As futuras gerações tenham qualidade de vida</li>
+                <li>Mudanças climáticas e aquecimento global</li>
+                <li>Escassez de recursos hídricos</li>
+                <li>Perda de biodiversidade</li>
+                <li>Acúmulo de resíduos e poluição</li>
+                <li>Desmatamento e desertificação</li>
             </ul>
         </section>
 
-        <section id="acoes">
-            <h2>Ações Sustentáveis</h2>
-            <p>Cada um de nós pode adotar práticas mais sustentáveis no dia a dia. Veja algumas áreas onde podemos atuar:</p>
+        <section id="praticas">
+            <h2>Práticas Sustentáveis</h2>
+            <p>Adotar um estilo de vida sustentável é mais fácil do que parece. Veja algumas práticas que você pode incorporar no seu dia a dia:</p>
             
-            <h3>Consumo Consciente</h3>
-            <p>Optar por produtos com menor impacto ambiental, reduzir o desperdício e priorizar itens duráveis e recicláveis.</p>
-            
-            <h3>Energia</h3>
-            <p>Utilizar fontes de energia renovável, economizar eletricidade e preferir equipamentos com maior eficiência energética.</p>
-            
-            <h3>Água</h3>
-            <p>Reduzir o consumo, reaproveitar água quando possível e evitar contaminação de fontes hídricas.</p>
+            <div class="cards">
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1587486913049-53fc88980cfc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Reciclagem">
+                    </div>
+                    <div class="card-content">
+                        <h4>Reciclagem</h4>
+                        <p>Separe seus resíduos e encaminhe para coleta seletiva. Reduza o consumo de produtos com embalagens desnecessárias.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1352&q=80" alt="Transporte sustentável">
+                    </div>
+                    <div class="card-content">
+                        <h4>Mobilidade</h4>
+                        <p>Prefira caminhar, andar de bicicleta ou usar transporte público. Quando possível, opte por veículos elétricos ou compartilhados.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Energia solar">
+                    </div>
+                    <div class="card-content">
+                        <h4>Energia Limpa</h4>
+                        <p>Considere instalar painéis solares em sua casa. Desligue aparelhos da tomada quando não estiver usando.</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <section id="dicas">
-            <h2>Dicas Práticas de Sustentabilidade</h2>
-            <p>Pequeñas mudanças no cotidiano podem ter grande impacto. Confira estas dicas:</p>
+        <section id="galeria">
+            <h2>Galeria de Sustentabilidade</h2>
+            <p>Inspire-se com estas imagens que mostram a beleza da natureza e práticas sustentáveis:</p>
             
-            <div class="dicas">
-                <div class="dica">
-                    <h4>Reduza o uso de plástico</h4>
-                    <p>Leve sua própria sacola ao mercado, use garrafas de água reutilizáveis e evite produtos com embalagens plásticas desnecessárias.</p>
+            <div class="cards">
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1466611653911-95081537e5b7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Floresta preservada">
+                    </div>
+                    <div class="card-content">
+                        <h4>Preservação Florestal</h4>
+                        <p>As florestas são essenciais para manter o equilíbrio ecológico e climático do planeta.</p>
+                    </div>
                 </div>
                 
-                <div class="dica">
-                    <h4>Economize energia</h4>
-                    <p>Troque lâmpadas por modelos LED, desligue aparelhos da tomada quando não estiver usando e aproveite a luz natural.</p>
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1526779259212-939e64788e3c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Agricultura sustentável">
+                    </div>
+                    <div class="card-content">
+                        <h4>Agricultura Orgânica</h4>
+                        <p>Métodos de cultivo que respeitam o meio ambiente e evitam agrotóxicos.</p>
+                    </div>
                 </div>
                 
-                <div class="dica">
-                    <h4>Separe o lixo</h4>
-                    <p>Implemente a coleta seletiva em casa, separando materiais recicláveis e orgânicos para destinação adequada.</p>
-                </div>
-                
-                <div class="dica">
-                    <h4>Prefira transportes sustentáveis</h4>
-                    <p>Ande a pé, de bicicleta ou use transporte público sempre que possível para reduzir emissões de carbono.</p>
-                </div>
-                
-                <div class="dica">
-                    <h4>Consuma alimentos locais</h4>
-                    <p>Compre de produtores locais para reduzir a pegada de carbono do transporte de alimentos e apoie a economia da região.</p>
-                </div>
-                
-                <div class="dica">
-                    <h4>Plante uma árvore</h4>
-                    <p>Árvores absorvem CO2, fornecem sombra e ajudam a manter o equilíbrio ecológico. Se não tiver espaço, participe de projetos de reflorestamento.</p>
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Construção sustentável">
+                    </div>
+                    <div class="card-content">
+                        <h4>Arquitetura Verde</h4>
+                        <p>Edificações que utilizam materiais ecológicos e sistemas de eficiência energética.</p>
+                    </div>
                 </div>
             </div>
         </section>
     </div>
 
     <footer>
-        <p>Juntos podemos fazer a diferença para um planeta mais sustentável!</p>
-        <p>© 2023 Sustentabilidade Ambiental - Todos os direitos reservados</p>
-        
-        <div class="social-links">
-            <a href="#" aria-label="Facebook">📘</a>
-            <a href="#" aria-label="Twitter">🐦</a>
-            <a href="#" aria-label="Instagram">📷</a>
-            <a href="#" aria-label="YouTube">▶️</a>
+        <div class="footer-content">
+            <h3>Junte-se a Nós Nesta Jornada</h3>
+            <p>Cada pequena ação conta quando se trata de preservar nosso planeta para as futuras gerações.</p>
+            
+            <div class="social-links">
+                <a href="#" aria-label="Facebook">📘</a>
+                <a href="#" aria-label="Instagram">📷</a>
+                <a href="#" aria-label="Twitter">🐦</a>
+                <a href="#" aria-label="LinkedIn">💼</a>
+            </div>
+            
+            <p>© 2023 Sustentabilidade Verde - Todos os direitos reservados</p>
         </div>
     </footer>
 </body>
